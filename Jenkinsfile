@@ -13,7 +13,9 @@ pipeline {
         timestamps() {
           timeout(unit: 'MINUTES', time: 15) {
             git(url: 'https://github.com/zoltanors/Hello.git', branch: 'master', changelog: true, poll: true)
-            sh '''source /home/vagrant/.rvm/scripts/rvm
+            sh '''#!/bin/bash
+
+source /home/vagrant/.rvm/scripts/rvm
 ruby test.rb'''
           }
 
